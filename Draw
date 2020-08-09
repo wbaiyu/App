@@ -1,0 +1,42 @@
+import turtle
+
+wn = turtle.Screen()
+wn.title('Moving game')
+wn.bgcolor('black')
+
+# Player
+player = turtle.Turtle()
+player.shape('turtle')
+player.color('white')
+player.pendown()
+
+# function
+def player_up():
+    y = player.ycor()
+    y += 20
+    player.sety(y)
+
+def player_down():
+    y = player.ycor()
+    y -= 20
+    player.sety(y)
+
+def player_left():
+    x = player.xcor()
+    x -= 20
+    player.setx(x)
+
+def player_right():
+    x = player.xcor()
+    x += 20
+    player.setx(x)
+
+# Keybord bindings
+wn.listen()
+wn.onkeypress(player_up,'w')
+wn.onkeypress(player_down,'s')
+wn.onkeypress(player_left,'a')
+wn.onkeypress(player_right,'d')
+
+while True:
+    wn.mainloop()
